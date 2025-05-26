@@ -15,7 +15,7 @@ class Pipeline:
             description="Base URL for accessing OpenAI API endpoints.",
         )
         OPENAI_API_KEY: str = Field(
-            default="OPENAI_API_KEY",
+            default="apikey",
             description="API key for authenticating requests to the OpenAI API.",
         )
 
