@@ -1,15 +1,13 @@
-# AI_Mentor_pipeline
-JBNU AI Mentor <br>
+# JBNU AI Mentor pipeline
+### Code Review & Study (지속적 업데이트 예정)
+> **✅ host.docker.internal 관련** 🔗[Code Review - host.docker.internal](https://sneaky-viscose-116.notion.site/Code-Review-host-docker-internal-1ff84dccb378801ebf23c039b1d15c22?pvs=4)
 
-## Code Review & Study (지속적 업데이트 예정)
-> **✅ host.docker.internal 관련** 🔗 [Link to Notion](https://sneaky-viscose-116.notion.site/Code-Review-host-docker-internal-1ff84dccb378801ebf23c039b1d15c22?pvs=4)
-
-
+<br><br>
 
 ## 📅 ~ 2025-05-22
 - Docker Desktop 설치 및 OpenWebUI 컨테이너 생성, 실행
 - Ai_mentor 코드 분석
-> **📌 코드 분석 정리 링크** 🔗 [Link to Notion](https://sneaky-viscose-116.notion.site/Ai_Mentor-Github-1e384dccb37880348f53df1e2ec0c95e?pvs=4)
+> **📌 코드 분석 정리 링크** 🔗[Ai_Mentor Github 분석](https://sneaky-viscose-116.notion.site/Ai_Mentor-Github-1e384dccb37880348f53df1e2ec0c95e?pvs=4)
 <br>
 
 ## 📅 2025-05-23
