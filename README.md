@@ -1,7 +1,7 @@
 # AI_Mentor_pipeline
 JBNU AI Mentor
 
-## 2025-05-26
+### 2025-05-26
 새로운 코드 분석 및 파악
 tool_dumb 폴더의 파일들에 import문 경로 수정
 tool_dumb 폴더의 모델로 openwebui 환경 구성 성공
@@ -11,3 +11,5 @@ tool_dumb main.py 코드 실행
 set PYTHONPATH=.
 python -m tool_dumb.main
 ```
+![image](https://github.com/user-attachments/assets/a4ac129d-649c-472c-ace5-595294534ac6)
+![image](https://github.com/user-attachments/assets/26d7380f-22e6-4995-97c9-d707dc666dee)
