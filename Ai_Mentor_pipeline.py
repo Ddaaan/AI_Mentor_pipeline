@@ -3,13 +3,15 @@ from schemas import OpenAIChatMessage
 from pydantic import BaseModel
 import requests
 
-
+# pipeline 클래스 정의 - OpenWebUI가 호출할 커스텀 파이프라인 클래스
 class Pipeline:
+    # 내부 설정용 클래스 - OpenWebUI에서 사용하는 환경변수를 정의
     class Valves(BaseModel):
         pass
 
+    # 생성자
     def __init__(self):
-        self.name = "Custom FastAPI Pipeline"
+        self.name = "Custom FastAPI Pipeline" # 파이프라인 이름 지정
         self.valves = self.Valves()
         pass
 
@@ -19,18 +21,19 @@ class Pipeline:
     async def on_shutdown(self):
         print(f"on_shutdown:{__name__}")
 
+    # OpenWebUI에서 메시지를 보낼 때 실행
     def pipe(
         self,
-        user_message: str,
+        user_message: str, # 사용자 입력 메시지
         model_id: str,
-        messages: List[dict],
+        messages: List[dict], # 전체 대화 히스토리리
         body: dict
     ) -> Union[str, Generator, Iterator]:
 
         print(f"[PIPE] user_message: {user_message}")
         print(f"[PIPE] messages: {messages}")
 
-        # FastAPI에 보낼 입력 추출
+        # FastAPI에 보낼 입력 추출 (사용자 메시지 추출)
         last_user_msg = ""
         for m in messages:
             if m.get("role") == "user":
@@ -41,7 +44,7 @@ class Pipeline:
         try:
             # FastAPI로 POST 요청
             r = requests.post(
-                url="http://host.docker.internal:7998/agent",
+                url="http://host.docker.internal:7998/agent", # tool_dumb/main.py로 전달
                 json={"query": last_user_msg},
                 timeout=10
             )
