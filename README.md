@@ -47,3 +47,10 @@ from tool_dumb.controller.controller import router as agent_router
 
 ![image](https://github.com/user-attachments/assets/26d7380f-22e6-4995-97c9-d707dc666dee)
 ![image](https://github.com/user-attachments/assets/a4ac129d-649c-472c-ace5-595294534ac6)
+
+<br><br>
+**DB까지 연결된 코드로 pipeline 연동 시도**
+- faiss_search\main.py 실행(port : 7997) 
+- llm_agent\main.py 실행 (port : 8001)
+- Ai_Mentor_pipeline url부분 코드 수정
+- AttributeError: 'NoneType' object has no attribute 'cursor' 오류 뜸 : DB 연결이 실패함
