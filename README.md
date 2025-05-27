@@ -1,4 +1,4 @@
-# JBNU AI Mentor pipeline
+![image](https://github.com/user-attachments/assets/22e52cdc-d7fd-48d4-9bbe-95cc4d7100e3)# JBNU AI Mentor pipeline
 ### Code Review & Study (지속적 업데이트 예정)
 > **✅ host.docker.internal 관련** 🔗[Code Review - host.docker.internal](https://sneaky-viscose-116.notion.site/Code-Review-host-docker-internal-1ff84dccb378801ebf23c039b1d15c22?pvs=4)
 
@@ -59,6 +59,11 @@ from tool_dumb.controller.controller import router as agent_router
 
 ## 📅 2025-05-27
 - coreService.py 파일까지 잘 들어가서 실행되는 것 확인
-- OpenWebUI에서 사용자가 질문 (CAD와 관련된 과목이 뭐야)을 보내면 전달까지는 잘 되는 것을 볼 수 있음
+- OpenWebUI에서 입력한 질문 전달 성공 (CAD를 배우는 과목이 뭐야)
 
 ![image](https://github.com/user-attachments/assets/255d3dc9-73d1-4e35-82e2-acade737db99)
+
+- 사용자가 질문 (인공지능과 관련된 과목 알려줘)을 보내면 faiss search가 돌아가서 비슷한 과목을 리스트 형태로 뽑아냄
+
+![image](https://github.com/user-attachments/assets/1d58391f-2d41-43dd-9381-94f0c9bc1fdd)
+
