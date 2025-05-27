@@ -47,7 +47,7 @@ class Pipeline:
                 # url="http://host.docker.internal:7998/agent", # tool_dumb/main.py로 전달
                 url="http://host.docker.internal:8001/agent",  # llm_agent 서버로 전달
                 json={"query": last_user_msg},
-                timeout=10
+                timeout=2000
             )
             r.raise_for_status()
 
