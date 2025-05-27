@@ -1,6 +1,7 @@
 from typing import List, Union, Generator, Iterator
 from schemas import OpenAIChatMessage
 from pydantic import BaseModel
+import json
 import requests
 
 # pipeline 클래스 정의 - OpenWebUI가 호출할 커스텀 파이프라인 클래스
@@ -42,19 +43,36 @@ class Pipeline:
         print(f"[PIPE] 마지막 유저 메시지: {last_user_msg}")
 
         try:
-            # FastAPI로 POST 요청
             r = requests.post(
-                # url="http://host.docker.internal:7998/agent", # tool_dumb/main.py로 전달
-                url="http://host.docker.internal:8001/agent",  # llm_agent 서버로 전달
+                url="http://host.docker.internal:8001/agent",
                 json={"query": last_user_msg},
                 timeout=2000
             )
             r.raise_for_status()
 
-            # JSON 응답 처리
-            result = r.json().get("message", "❌ 응답 없음")
+            result = r.json()
+            msg = result.get("message", {})
 
-            return result
+            # 요약 텍스트 만들기
+            final_message = msg.get("final_message")
+            steps = msg.get("steps", [])
+
+            # 문자열로 변환
+            summary_text = ""
+
+            if isinstance(final_message, dict):
+                summary_text += "최종 추천 결과:\n"
+                summary_text += json.dumps(final_message, ensure_ascii=False) + "\n\n"
+
+            if isinstance(steps, list):
+                for step in steps:
+                    summary_text += f"Step {step['step_number']} ({step['tool_name']})\n" # 몇 번째 실행인지 / 어떤 tool을 사용했는지지
+                    summary_text += f"요청: {step['tool_input']}\n" # tool에 보낸 입력값
+                    summary_text += f"응답: {json.dumps(step['tool_response'], ensure_ascii=False)}\n" # 응답값 출력 dict 형태인데 dumps를 활용해 json 문자열 형태로 변환해서 출력력 (dict : 딕셔너리 자료형 - key-value쌍의 집합)
+                    summary_text += f"사유: {step['reason']}\n\n" # LLM이 이 도구를 사용한 이유
+
+            return summary_text.strip()
 
         except Exception as e:
-            return f"❌ FastAPI 호출 오류: {str(e)}"
+            return f"FastAPI 호출 오류: {str(e)}"
+
