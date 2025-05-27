@@ -102,6 +102,6 @@ test.py 파일에서 출력된 json 형식 구조 <br>
 - json 구조를 분석 후 일단 형식 그대로 UI에 출력되게 코드 수정
 - tool을 여러 번 사용해서 다양한 결과를 비교 후 가장 최적의 답변을 나오도록 prompt가 설계되어 있는 것 같음
 
-![image](https://github.com/user-attachments/assets/37bbfbaf-072c-4298-8625-cf8dcfacad8f)
+![image](https://github.com/user-attachments/assets/37bbfbaf-072c-4298-8625-cf8dcfacad8f) ![image](https://github.com/user-attachments/assets/81bc578f-710e-4e99-aee9-6885415f0784)
 
 - final_message의 key를 사용한 응답을 만들 수 있는 코드를 파악한 후 응답이 제대로 나오게 코드 수정 예정
