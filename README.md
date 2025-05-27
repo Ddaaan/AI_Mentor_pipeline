@@ -54,3 +54,11 @@ from tool_dumb.controller.controller import router as agent_router
 - llm_agent\main.py 실행 (port : 8001)
 - Ai_Mentor_pipeline url부분 코드 수정
 - AttributeError: 'NoneType' object has no attribute 'cursor' 오류 뜸 : DB 연결이 실패함
+
+<br>
+
+## 📅 2025-05-27
+- coreService.py 파일까지 잘 들어가서 실행되는 것 확인
+- OpenWebUI에서 사용자가 질문 (CAD와 관련된 과목이 뭐야)을 보내면 전달까지는 잘 되는 것을 볼 수 있음
+
+![image](https://github.com/user-attachments/assets/255d3dc9-73d1-4e35-82e2-acade737db99)
