@@ -64,6 +64,44 @@ from tool_dumb.controller.controller import router as agent_router
 ![image](https://github.com/user-attachments/assets/255d3dc9-73d1-4e35-82e2-acade737db99)
 
 - 사용자가 질문 (인공지능과 관련된 과목 알려줘)을 보내면 faiss search가 돌아가서 비슷한 과목을 리스트 형태로 뽑아냄
+- UI에는 출력 오류가 발생함
 
 ![image](https://github.com/user-attachments/assets/1d58391f-2d41-43dd-9381-94f0c9bc1fdd)
 
+- 테스트를 위해 test.py 코드를 별도로 작성하여 json 응답이 어떤 형태로 나오는지 파악
+> 예시 질문인 "전북대학교에서 인공지능 과목이 뭐가 있어?" 라는 질문은 json형식은 아래와 같음
+
+```python3
+import requests
+res = requests.post(
+    "http://localhost:8001/agent",
+    json={"query": "전북대학교에서 인공지능 과목이 뭐가 있어?"}
+)
+print(res.json())
+```
+test.py 코드 <br>
+```bash
+{'message': {
+  'steps': [
+  {
+  'step_number': 1,
+  'tool_name': 'search',
+  'tool_input': '{"count": 5, "key": "인공지능"}',
+  'tool_response': {'key': "['인공지능', '인공지능', '인공지능', '인공지능', '공공정책입법과정']"},
+  'reason': '인공지능 과목에 대한 정보를 찾기 위해 "search" 도구를  사용했습니다. 이 도구는 입력된 과목명과 유사한 수업을 추천하는 기능을 가지고 있습니다. "인공지능"에 대해 검색을 진행하였습니다.'
+  }
+],
+'final_message': {
+  'key': "['인공지능', '인공지능', '인공지능', '인공지능', '공공정책입법과정']"
+    }
+  }
+}
+```
+test.py 파일에서 출력된 json 형식 구조 <br>
+
+- json 구조를 분석 후 일단 형식 그대로 UI에 출력되게 코드 수정
+- tool을 여러 번 사용해서 다양한 결과를 비교 후 가장 최적의 답변을 나오도록 prompt가 설계되어 있는 것 같음
+
+![image](https://github.com/user-attachments/assets/37bbfbaf-072c-4298-8625-cf8dcfacad8f)
+
+- final_message의 key를 사용한 응답을 만든 코드를 파악하거나 생성한 후 응답이 제대로 나오게 코드 수정 예정
