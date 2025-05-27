@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/22e52cdc-d7fd-48d4-9bbe-95cc4d7100e3)# JBNU AI Mentor pipeline
+# JBNU AI Mentor pipeline
 ### Code Review & Study (지속적 업데이트 예정)
 > **✅ host.docker.internal 관련** 🔗[Code Review - host.docker.internal](https://sneaky-viscose-116.notion.site/Code-Review-host-docker-internal-1ff84dccb378801ebf23c039b1d15c22?pvs=4)
 
@@ -104,4 +104,4 @@ test.py 파일에서 출력된 json 형식 구조 <br>
 
 ![image](https://github.com/user-attachments/assets/37bbfbaf-072c-4298-8625-cf8dcfacad8f)
 
-- final_message의 key를 사용한 응답을 만든 코드를 파악하거나 생성한 후 응답이 제대로 나오게 코드 수정 예정
+- final_message의 key를 사용한 응답을 만들 수 있는 코드를 파악한 후 응답이 제대로 나오게 코드 수정 예정
